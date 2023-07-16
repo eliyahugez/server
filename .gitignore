@@ -2,8 +2,7 @@
 
 # dependencies
 /node_modules
-/sandbox-server/node_modules
-
+/sandbox-server
 # testing
 /coverage
 
