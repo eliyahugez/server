@@ -5,6 +5,7 @@ const router = require('./router/router');
 const handleErrors = require('./utils/handleErrors');
 const cors = require('./cors/cors');
 const morgan = require('morgan');
+const connectToDB = require('./DB/DbServise');
 
 // app.use(morgan(
 //     chalk.cyanBright("[:date[clf]] :method :url :status :response-time ms")
@@ -38,6 +39,7 @@ router.use((error, req, res, next) => {
 const PORT = 8181; // 0-65535
 app.listen(PORT, () => {
     console.log(chalk.blue.bold(`Server is listening on port ${PORT}`));
+    connectToDB();
 });
 
 
