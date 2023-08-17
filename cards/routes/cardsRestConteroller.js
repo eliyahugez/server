@@ -24,9 +24,9 @@ router.get("/", async (req, res) => {
 });
 router.get("/my-cards", async (req, res) => {
   const userId = "123456";
-  const card = await getMyCards(userId);
+  const cards = await getMyCards(userId);
   try {
-    return res.send(card);
+    return res.send(cards);
   } catch (error) {
     return handleErrors(res, error.status || 500, error.message);
   }

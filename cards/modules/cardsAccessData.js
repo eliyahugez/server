@@ -16,19 +16,19 @@ getCards = async () => {
   return Promise.resolve([]), console.log("connot connect");
 };
 getMyCards = async (userId) => {
-  //   if (DB === "MONGODB") {
-  //     try {
-  //       const cards = await Card.find({ _id: userId });
-  //       if (!cards) {
-  //         handleErrors("Could not find cards in database");
-  //       }
-  //       Promise.resolve(cards);
-  //     } catch (error) {
-  //       error.status = 404;
-  //       //handleErrors(error, 404, `Mongoose: ${error.message} `);
-  //       handleErrors("Could not find cards in database");
-  //     }
-  //   }
+  if (DB === "MONGODB") {
+    try {
+      const cards = await Card.find({ _id: userId });
+      if (!cards) {
+        handleErrors("Could not find cards in database");
+      }
+      Promise.resolve(cards);
+    } catch (error) {
+      error.status = 404;
+      //handleErrors(error, 404, `Mongoose: ${error.message} `);
+      handleErrors("Could not find cards in database");
+    }
+  }
 };
 
 FindMycards = async (userid) => {
