@@ -1,10 +1,13 @@
 import validateCard from "../validations/cardValidationService";
+import normalizeCard from "../helpers/normalizeCard";
+import handleErrors from "../../utils/handleErrors";
+import Card from "../helpers/mongooseValidators";
 
-createCard = () =>{
-const {error} = validateCard(rawCard);
+const handleCreateCard = async (rawCard, res) => {
+  const { error } = validateCard(rawCard);
+  if (error)
+    return handleErrors(res, 400, `joi error: ${error.details[0].message}`);
+  const card = await normalizeCard(rawCard);
 
-if (error) {
-    return Promise.reject(error);
-} else {
-    return Promise.resolve("Card created successfully")
-}}
+  return cardAfterJoi;
+};

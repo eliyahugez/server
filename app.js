@@ -6,6 +6,7 @@ const handleErrors = require('./utils/handleErrors');
 const cors = require('./cors/cors');
 const morgan = require('morgan');
 const connectToDB = require('./DB/DbServise');
+const mongoose = require('mongoose');
 
 // app.use(morgan(
 //     chalk.cyanBright("[:date[clf]] :method :url :status :response-time ms")
